@@ -109,7 +109,7 @@ public class PegasusWings implements IPonyPart, PonyModelConstants {
         for (int i = 0; i < this.rightWing.length; ++i) {
             this.rightWing[i].rotateAngleY = bodySwingRotation * 0.2F;
         }
-        if (pony.isSneak && !pony.isFlying) {
+        if (pony.isSneak && !pony.isFlying && !pony.isElytraFlying) {
             this.sneak();
         } else {
             this.unsneak(tick);
@@ -141,7 +141,7 @@ public class PegasusWings implements IPonyPart, PonyModelConstants {
         pony.transform(BodyPart.BODY);
         pony.bipedBody.postRender(scale);
         if (data.getRace() != null && data.getRace().hasWings()) {
-            if (!pony.isFlying && !pony.isSneak) {
+            if (!pony.isFlying && !pony.isSneak && !pony.isElytraFlying) {
 
                 for (int k1 = 0; k1 < this.leftWing.length; ++k1) {
                     this.leftWing[k1].render(scale);
@@ -176,7 +176,7 @@ public class PegasusWings implements IPonyPart, PonyModelConstants {
     }
 
     private void unsneak(float tick) {
-        if (pony.isFlying) {
+        if (pony.isFlying || pony.isElytraFlying) {
             float WingRotateAngleZ = MathHelper.sin(tick * 0.536F) * 1.0F;
 
             for (int i = 0; i < this.leftWingExt.length; ++i) {

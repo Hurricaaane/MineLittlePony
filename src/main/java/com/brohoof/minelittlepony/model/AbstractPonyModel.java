@@ -34,8 +34,10 @@ public abstract class AbstractPonyModel extends ModelPlayer {
     public ModelRenderer steveLeftArmwear;
     public ModelRenderer steveRightArmwear;
 
+    /** False when elytra flying **/
     public boolean isFlying;
     public boolean isSleeping;
+    public boolean isElytraFlying;
 
     public PonyData metadata = new PonyData();
 
@@ -339,6 +341,7 @@ public abstract class AbstractPonyModel extends ModelPlayer {
             AbstractPonyModel pony = (AbstractPonyModel) model;
             this.isFlying = pony.isFlying;
             this.isSleeping = pony.isSleeping;
+            this.isElytraFlying = pony.isElytraFlying;
         }
     }
 

@@ -81,7 +81,7 @@ public class ModelPlayerPony extends AbstractPonyModel implements PonyModelConst
         this.setLegs(move, swing, tick, entity);
         this.holdItem(swing);
         this.swingItem(entity, this.swingProgress);
-        if (this.isSneak && !this.isFlying) {
+        if (this.isSneak && !this.isFlying && !this.isElytraFlying) {
             this.adjustBody(BODY_ROTATE_ANGLE_X_SNEAK, BODY_RP_Y_SNEAK, BODY_RP_Z_SNEAK);
             this.sneakLegs();
             this.setHead(0.0F, 6.0F, -2.0F);
@@ -263,7 +263,7 @@ public class ModelPlayerPony extends AbstractPonyModel implements PonyModelConst
         float sinBodyRotateAngleYFactor = MathHelper.sin(this.bipedBody.rotateAngleY) * 5.0F;
         float cosBodyRotateAngleYFactor = MathHelper.cos(this.bipedBody.rotateAngleY) * 5.0F;
         float legOutset = 4.0F;
-        if (this.isSneak && !this.isFlying) {
+        if (this.isSneak && !this.isFlying && !this.isElytraFlying) {
             legOutset = smallArms ? 1.0F : 0F;
         }
 
