@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        docker 'dodb/jenkins-java-gradle-slave'
+    }
     stages {
         stage('build') {
             steps {
